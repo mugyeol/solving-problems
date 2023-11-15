@@ -13,6 +13,7 @@
             negRight = negRight -1
         }
     }
+      
     let posLeft = 0
     let posRight = nums.length-1
     let posCount = 0
