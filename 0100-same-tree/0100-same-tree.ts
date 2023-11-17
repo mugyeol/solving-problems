@@ -13,12 +13,21 @@
  */
 
 function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
-    if(p===null && q===null){
-        return true
-    }else if(p===null || q===null){
-        return false
-    }else if(p.val !== q.val){
-        return false
+    const queue = [p, q];
+
+    while (queue.length > 0) {
+        let node1 = queue.shift();
+        let node2 = queue.shift();
+
+        if (node1 === null && node2 === null) continue;
+        if (node1 === null || node2 === null) return false;
+        if (node1.val !== node2.val) return false;
+
+        queue.push(node1.left);
+        queue.push(node2.left);
+        queue.push(node1.right);
+        queue.push(node2.right);
     }
-    return isSameTree(p.left, q.left) && isSameTree(p.right,q.right)
-};
+
+    return true;
+}
