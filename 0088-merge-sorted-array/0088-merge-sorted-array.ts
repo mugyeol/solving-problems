@@ -14,9 +14,9 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
         }
         i--
     }
-while(p2>=0){
-    nums1[i] = nums2[p2]
-    p2--
-    i--
-}
+        while(p2>=0){
+            nums1[i] = nums2[p2]
+            p2--
+            i--
+        }
 };
