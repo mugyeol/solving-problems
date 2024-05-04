@@ -13,32 +13,16 @@
  */
 
 function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
-    if (!p && !q) return true; // 두 트리 모두 null인 경우 같다고 판단
-    if (!p || !q) return false; // 하나만 null인 경우는 다르다고 판단
-
-    const pQueue = [p];
-    const qQueue = [q];
-
-    while (pQueue.length && qQueue.length) {
-        const pNode = pQueue.shift();
-        const qNode = qQueue.shift();
-
-        // 두 노드를 검사
-        if (!pNode && !qNode) continue;
-        if (!pNode || !qNode) return false;
-        if (pNode.val !== qNode.val) return false;
-
-        // 두 노드의 자식들을 큐에 추가 (null이 아닌 경우만 추가)
-        if (pNode.left || qNode.left) {
-            pQueue.push(pNode.left);
-            qQueue.push(qNode.left);
-        }
-        if (pNode.right || qNode.right) {
-            pQueue.push(pNode.right);
-            qQueue.push(qNode.right);
-        }
-    }
-
-    return pQueue.length === qQueue.length; // 큐 길이가 같으면 true, 다르면 false
+    
+    if(p===null && q===null)return true
+    
+    if(p===null || q===null) return false
+    
+    if(p.val !== q.val) return false
+    
+       
+   return  isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+    
+    
 };
 
