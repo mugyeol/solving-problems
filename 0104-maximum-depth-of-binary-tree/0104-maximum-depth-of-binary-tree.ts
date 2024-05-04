@@ -12,30 +12,48 @@
  * }
  */
 
-
 function maxDepth(root: TreeNode | null): number {
- 
-if(!root){
-    return 0
-}
+
+    if(root === null)return 0
+
     
-   let depth = 0
-   let queue = [root]
+    let queue = [root]
+    let depth = 0
     
-   while (queue.length){
-       
+    while(queue.length){
        const len = queue.length
        
        for(let i =0; i<len; i++){
-              const current = queue.shift()
+        let current = queue.shift()
         if(current.left) queue.push(current.left)
-       if(current.right) queue.push(current.right)
-       }
-       
-    depth++;
-   }
+        if(current.right) queue.push(current.right)  
+        }
+        
+        depth ++;  
+    }
     return depth
     
+}
+// function maxDepth(root: TreeNode | null): number {
+ 
+// if(!root){
+//     return 0
+// }
     
+//    let depth = 0
+//    let queue = [root]
     
-};
+//    while (queue.length){
+       
+//        const len = queue.length
+       
+//        for(let i =0; i<len; i++){
+//               const current = queue.shift()
+//         if(current.left) queue.push(current.left)
+//        if(current.right) queue.push(current.right)
+//        }
+       
+//     depth++;
+//    }
+//     return depth
+// };
