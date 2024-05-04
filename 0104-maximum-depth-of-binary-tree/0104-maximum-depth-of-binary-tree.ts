@@ -21,9 +21,9 @@ function maxDepth(root: TreeNode | null): number {
     let depth = 0
     
     while(queue.length){
-       const len = queue.length
-       
-       for(let i =0; i<len; i++){
+        const len = queue.length;
+
+      for(let i=0; i<len; i++){
         let current = queue.shift()
         if(current.left) queue.push(current.left)
         if(current.right) queue.push(current.right)  
